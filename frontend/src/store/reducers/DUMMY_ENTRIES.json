@@ -1,0 +1,17 @@
+[
+    {
+        "from": {
+            "tags": [
+                "cool"
+            ],
+            "time": 1587336313429
+        },
+        "message": "A message from me to you",
+        "to": {
+            "tags": [
+                "bored"
+            ],
+            "time": 1587337012053
+        }
+    }
+]
