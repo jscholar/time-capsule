@@ -1,0 +1,6 @@
+.TagList {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin: 20px;
+}

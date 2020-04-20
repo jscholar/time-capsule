@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import TagList from '../Tag/TagList';
 
+import './App.css';
+
 import DummyTags from '../Tag/DummyTags.json';
-import TagForm from '../Tag/TagForm';
 
 export interface AppState {
     tags: Object[];
@@ -23,7 +24,6 @@ class App extends Component<{}, AppState> {
             <div>
                 Time Capsule
                 <TagList tags={tags}></TagList>
-                <TagForm></TagForm>
             </div>
         )
     }

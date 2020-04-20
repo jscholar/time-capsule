@@ -2,15 +2,15 @@ import React from 'react';
 import './Tag.css';
 
 export interface TagProps {
-    name: String,
-    color: String,
+    name: string,
+    color: string,
 }
 
 const Tag = ({name, color}: TagProps) => (
     <div 
-        className="tag"
+        className="Tag"
         style={{
-            border: `3px solid ${color}`
+            borderColor: color
         }}
     >
         {name}
