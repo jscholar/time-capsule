@@ -1,8 +1,8 @@
-import DUMMY_TAGS from './DummyTags.json';
+import DUMMY_TAGS from './DUMMY_TAGS.json';
 
 const tags = (state = DUMMY_TAGS, action) => {
-    const { TYPE } = action;
-    switch(TYPE) {
+    const { type } = action;
+    switch(type) {
         default:
             return state;
     }
