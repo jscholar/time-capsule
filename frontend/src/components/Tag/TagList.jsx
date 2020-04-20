@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import Tag from './Tag';
 import TagForm from './TagForm';
 
@@ -19,4 +21,8 @@ const TagList = ({ tags }) => (
     </div>
 );
 
-export default TagList;
+const mapStateToProps = ({ tags }) => ({
+    tags,
+});
+
+export default connect(mapStateToProps)(TagList);
