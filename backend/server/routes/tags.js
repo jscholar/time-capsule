@@ -1,5 +1,4 @@
 const express = require('express');
-const db = require('../../database/index');
 const Tag = require('../../database/models/tag');
 const tags = express.Router();
 
@@ -15,8 +14,30 @@ tags.get('/', (req, res) => {
         })
 });
 
-tags.post('/', (req, res) => {
-    res.send('Create tag');
+tags.post('/', async ({ body: tag }, res) => {
+    let tagExists;
+    await Tag.findOne({ name: tag.name })
+        .then((doc) => tagExists = doc !== null)
+        .catch((err) => {
+            console.log(err);
+            res.status(500).send('Error checking database')
+        });
+        ;
+
+    if (tagExists) {
+        res.status(400).send('Already exists');
+    } else {
+        const newTag = new Tag(tag);
+        newTag.save()
+            .then((doc) => {
+                res.status(201).send();
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).send('Error saving document');
+            })
+    }
+
 });
 
 tags.put('/:tagId', (req, res) => {
