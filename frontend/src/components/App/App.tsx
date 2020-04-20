@@ -3,6 +3,7 @@ import TagList from '../Tag/TagList';
 
 import './App.css';
 
+import getTags from '../../api/getTags';
 import DummyTags from '../Tag/DummyTags.json';
 
 export interface AppState {
@@ -15,6 +16,15 @@ class App extends Component<{}, AppState> {
         this.state = {
             tags: DummyTags,
         }
+    }
+
+    componentDidMount() {
+        getTags()
+            .then((tags) => {
+                this.setState({
+                    tags,
+                })
+            })
     }
     
     render() {
