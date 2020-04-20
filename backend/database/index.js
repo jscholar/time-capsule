@@ -3,7 +3,10 @@ const Tag = require('./models/tag');
 
 mongoose.connect(
     'mongodb://localhost/time-capsule',
-    { useNewUrlParser: true },
+    { 
+        useNewUrlParser: true,
+        useFindAndModify: true,
+     },
     (err) => {
         if (err) {
             console.log(err);
