@@ -1,5 +1,5 @@
 const express = require('express');
-const Tag = require('../../database/models/tag');
+const Tag = require('../../database/models/Tag');
 const tags = express.Router();
 
 tags.get('/', (req, res) => {
