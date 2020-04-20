@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+import { postTag } from '../../api/tags';
+import fetchTags from '../../store/actions/fetchTags.action';
 class TagForm extends Component {
     constructor(props) {
         super(props);
@@ -8,6 +11,7 @@ class TagForm extends Component {
             color: null,
         }
         this.changeHandler = this.changeHandler.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
     }
 
     changeHandler({ target }) {
@@ -17,16 +21,30 @@ class TagForm extends Component {
         });
     }
 
+    submitHandler() {
+        const tag = {
+            ...this.state
+        }
+        const { fetchTags } = this.props;
+        
+        postTag(tag)
+            .then(fetchTags);
+    }
+
     render() {
         return (
             <div>
                 <div>New Tag</div>
                 <input onChange={this.changeHandler} id="name" type="text" name="name"></input>
                 <input onChange={this.changeHandler} id="color" type="color" name="color"></input>
-                <div>Add</div>
+                <div onClick={this.submitHandler}>Add</div>
             </div>
         )
     }
 }
 
-export default TagForm;
+const mapDispatchToProps = {
+    fetchTags,
+}
+
+export default connect(null, mapDispatchToProps)(TagForm);

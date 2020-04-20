@@ -1,4 +1,4 @@
-import getTags from '../../api/getTags';
+import { getTags } from '../../api/tags';
 
 const fetchTags = () => {
     return (dispatch) => {
