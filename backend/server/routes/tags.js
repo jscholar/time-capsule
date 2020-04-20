@@ -40,8 +40,16 @@ tags.post('/', async ({ body: tag }, res) => {
 
 });
 
-tags.put('/:tagId', (req, res) => {
-    res.send('Update tag');
+tags.put('/:tagId', ({ body: tag, params }, res) => {
+    const { tagId } = params;
+    Tag.findByIdAndUpdate(tagId, tag)
+        .then((doc) => {
+            res.status(200).send(doc);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).send('Error updated document');
+        });
 });
 
 module.exports = tags;
