@@ -12,9 +12,16 @@ module.exports = {
             {
                 test: /\.tsx?$/, // Transpile jsx and js
                 exclude: /node_modules/,
-                loader: 'babel-loader'
-            }
-        ]
+                loader: 'babel-loader',
+            },
+            {
+                test: /\.css?$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                ],
+            },
+        ],
     },
     resolve: {
         extensions: [
@@ -25,4 +32,4 @@ module.exports = {
         ],
     },
     devtool: 'inline-source-map',
-}
+};
