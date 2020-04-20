@@ -4,7 +4,7 @@ const tags = (state = DUMMY_TAGS, action) => {
     const { type } = action;
     switch(type) {
         case 'FETCH_TAGS':
-            return tags;
+            return action.tags;
         default:
             return state;
     }
