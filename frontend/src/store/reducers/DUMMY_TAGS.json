@@ -1,12 +1,12 @@
-[
-    {
+{
+    "Bored": {
         "id": 1,
         "name": "Bored",
         "color": "#FF0000"
     },
-    {
+    "Cool": {
         "id": 2,
         "name": "Cool",
         "color": "#0000FF"
     }
-]
+}

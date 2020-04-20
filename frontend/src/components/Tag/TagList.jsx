@@ -9,9 +9,10 @@ import './TagList.css';
 const TagList = ({ tags }) => (
     <div className="TagList">
         {
-            tags.map(({name, color}) => (
+            Object.entries(tags).map(([id, {name, color}]) => (
                 <Tag
-                    key={name + color}
+                    id={id}
+                    key={id}
                     name={name}
                     color={color}
                 />

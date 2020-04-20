@@ -4,9 +4,16 @@ const fetchTags = () => {
     return (dispatch) => {
         return getTags()
             .then((tags) => {
+                const tagsState = {};
+                tags.forEach(({_id, name, color}) => {
+                    tagsState[_id] = {
+                        name,
+                        color,
+                    }
+                });
                 dispatch({
                     type: 'FETCH_TAGS',
-                    tags
+                    tagsState
                 });
             });
     }
