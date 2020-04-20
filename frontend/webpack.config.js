@@ -10,7 +10,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/, // Transpile jsx and js
+                test: /\.jsx?$/, // Transpile jsx and js
                 exclude: /node_modules/,
                 loader: 'babel-loader',
             },
@@ -25,8 +25,6 @@ module.exports = {
     },
     resolve: {
         extensions: [
-            '.ts',
-            '.tsx',
             '.js',
             '.jsx',
         ],
