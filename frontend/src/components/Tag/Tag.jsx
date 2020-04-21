@@ -5,7 +5,7 @@ import selectTag from '../../store/actions/selectTag.action';
 
 import './Tag.css';
 
-const Tag = ({ id, name, color, selectTag }) => (
+export const Tag = ({ id, name, color, selectTag = () => {} }) => (
     <div 
         className="Tag"
         onClick={() => selectTag(id)}

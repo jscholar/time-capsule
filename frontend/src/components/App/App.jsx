@@ -6,6 +6,7 @@ import fetchEntries from '../../store/actions/fetchEntries.action';
 
 import TagList from '../Tag/TagList';
 import EntryList from '../Entry/EntryList';
+import Entry from '../Entry/Entry';
 
 import './App.css';
 
@@ -26,6 +27,7 @@ class App extends Component {
             <div>
                 Time Capsule
                 <EntryList></EntryList>
+                <Entry></Entry>
                 <TagList></TagList>
             </div>
         )
