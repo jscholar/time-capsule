@@ -1,6 +1,6 @@
 import { getEntries } from '../../api/entries';
 
-const fetchEntries = (tags, time) => {
+const fetchEntries = (time) => {
     return (dispatch, getState) => {
         const { currentTags } = getState();
         return getEntries(currentTags, time)

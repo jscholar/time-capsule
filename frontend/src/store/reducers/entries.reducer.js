@@ -1,6 +1,4 @@
-import DUMMY_ENTRIES from './DUMMY_ENTRIES.json'
-
-const entries = (state = DUMMY_ENTRIES, action) => {
+const entries = (state = [], action) => {
     const { type } = action;
     switch(type) {
         case 'FETCH_ENTRIES':
