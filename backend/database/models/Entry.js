@@ -11,9 +11,11 @@ const entrySchema = mongoose.Schema({
 
 const Entry = mongoose.model('Entry', entrySchema);
 
-Entry.findByTagsAndTime = (tags = null, time = new Date()) => (
+Entry.findByTagsAndTime = (tags, time = new Date()) => (
     Entry.find({
-        recipientTags: { $elemMatch: { $in: tags } }, // Matches entries with any tag in search
+        recipientTags: tags 
+            ? { $elemMatch: { $in: tags } } // Matches entries with any tag in search
+            : [],
         recipientTime: { $lte: time },
     })
 );
