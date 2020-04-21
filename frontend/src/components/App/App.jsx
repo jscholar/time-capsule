@@ -5,10 +5,9 @@ import fetchTags from '../../store/actions/fetchTags.action'
 import fetchEntries from '../../store/actions/fetchEntries.action';
 
 import TagList from '../Tag/TagList';
-
+import EntryList from '../Entry/EntryList';
 
 import './App.css';
-
 
 class App extends Component {
     constructor(props) {
@@ -26,6 +25,7 @@ class App extends Component {
         return (
             <div>
                 Time Capsule
+                <EntryList></EntryList>
                 <TagList></TagList>
             </div>
         )
