@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import EntryListItem from './EntryListItem'
 
-const Inbox = ({ entries }) => (
+const EntryList = ({ entries }) => (
     <div>
         {entries.map((entry) => (
             <EntryListItem
@@ -18,4 +18,4 @@ const mapStateToProps = ({ entries }) => ({
     entries,
 });
 
-export default connect(mapStateToProps)(Inbox);
+export default connect(mapStateToProps)(EntryList);

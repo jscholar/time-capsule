@@ -1,9 +1,16 @@
 import React from 'react';
 
-const EntryListItem = ({ entry }) => (
-    <div>
+import { connect } from 'react-redux';
+import selectEntry from '../../store/actions/selectEntry.action';
+
+const EntryListItem = ({ entry, selectEntry }) => (
+    <div onClick={() => selectEntry(entry)}>
         {entry.senderTime}
     </div>
 )
 
-export default EntryListItem;
+const mapDispatchToProps = {
+    selectEntry,
+}
+
+export default connect(null, mapDispatchToProps)(EntryListItem);
