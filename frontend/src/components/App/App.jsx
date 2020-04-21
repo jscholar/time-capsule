@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import fetchTags from '../../store/actions/fetchTags.action'
+import fetchEntries from '../../store/actions/fetchEntries.action';
 
 import TagList from '../Tag/TagList';
 
@@ -16,7 +17,9 @@ class App extends Component {
 
     componentDidMount() {
         const { fetchTags } = this.props;
+        const { fetchEntries } = this.props;
         fetchTags();
+        fetchEntries();
     }
     
     render() {        
@@ -31,6 +34,7 @@ class App extends Component {
 
 const mapDispatchToProps = {
     fetchTags,
+    fetchEntries,
 }
 
 export default connect(null, mapDispatchToProps)(App);
