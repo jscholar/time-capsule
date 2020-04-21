@@ -1,5 +1,5 @@
 const selectTag = (tagId) => ({
-    type: 'SELECT_TAG',
+    type: 'TOGGLE_TAG',
     tagId: tagId,
 });
 

@@ -1,14 +1,11 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-import selectTag from '../../store/actions/selectTag.action';
-
 import './Tag.css';
 
-export const Tag = ({ id, name, color, selectTag = () => {} }) => (
+export const Tag = ({ id, name, color, clickHandler = () => {} }) => (
     <div 
         className="Tag"
-        onClick={() => selectTag(id)}
+        onClick={() => clickHandler(id)}
         style={{
             borderColor: color
         }}
@@ -17,8 +14,4 @@ export const Tag = ({ id, name, color, selectTag = () => {} }) => (
     </div>
 );
 
-const mapDispatchToProps = {
-    selectTag
-}
-
-export default connect(null, mapDispatchToProps)(Tag);
+export default Tag;
