@@ -8,15 +8,16 @@ import TagForm from './TagForm';
 
 import './TagList.css';
 
-const TagList = ({ tags, toggleTag }) => (
+const TagList = ({ tags, toggleTag, currentTags }) => (
     <div className="TagList">
+        <div>Tags</div>
         {
             Object.entries(tags).map(([id, {name, color}]) => (
                 <Tag
                     id={id}
                     key={id}
                     name={name}
-                    color={color}
+                    color={currentTags.includes(id) ? color : '#FFFFFF'}
                     clickHandler={toggleTag}
                 />
             ))
@@ -25,8 +26,9 @@ const TagList = ({ tags, toggleTag }) => (
     </div>
 );
 
-const mapStateToProps = ({ tags }) => ({
+const mapStateToProps = ({ tags, currentTags }) => ({
     tags,
+    currentTags,
 });
 
 const mapDispatchToProps = {
