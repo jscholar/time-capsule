@@ -4,24 +4,34 @@ import { connect } from 'react-redux';
 
 import { Tag } from '../Tag/Tag';
 
+import './Entry.css';
+
 const Entry = ({ entry, tags }) => (
     entry ? 
-        <div>
-            {entry.recipientTags.map(tagId => (
-                <Tag 
-                    key={tagId}
-                    name={tags[tagId].name}
-                    color={tags[tagId].color}
-                />
-            ))}
-            {entry.message}
-            {entry.senderTags.map(tagId => (
-                <Tag 
-                    key={tagId}
-                    name={tags[tagId].name}
-                    color={tags[tagId].color}
-                />
-            ))}
+        <div className="entry">
+            <div className="recipient">
+                To
+                {entry.recipientTags.map(tagId => (
+                    <Tag 
+                        key={tagId}
+                        name={tags[tagId].name}
+                        color={tags[tagId].color}
+                    />
+                ))}
+            </div>
+            <div className="message">
+                {entry.message}
+            </div>
+            <div className="sender">       
+                From
+                {entry.senderTags.map(tagId => (
+                    <Tag 
+                        key={tagId}
+                        name={tags[tagId].name}
+                        color={tags[tagId].color}
+                    />
+                ))}
+            </div>
         </div>
     : null
 );
