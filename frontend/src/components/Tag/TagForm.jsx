@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { postTag } from '../../api/tags';
 import fetchTags from '../../store/actions/fetchTags.action';
+
+import './TagForm.css';
+
 class TagForm extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +25,10 @@ class TagForm extends Component {
     }
 
     submitHandler() {
+        if (!this.state.name || !this.state.name.length) {
+            return;
+        }
+        
         const tag = {
             ...this.state
         }
@@ -33,7 +40,7 @@ class TagForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="TagForm">
                 <div>New Tag</div>
                 <input onChange={this.changeHandler} id="name" type="text" name="name"></input>
                 <input onChange={this.changeHandler} id="color" type="color" name="color"></input>
