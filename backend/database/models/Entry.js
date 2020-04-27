@@ -18,6 +18,7 @@ Entry.findByTagsAndTime = (tags, time = new Date()) => (
             : [],
         recipientTime: { $lte: time },
     })
+        .sort({ senderTime: 'desc' })
 );
 
 module.exports = Entry;
