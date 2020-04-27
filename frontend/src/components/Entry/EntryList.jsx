@@ -1,10 +1,13 @@
 import React from 'react';
+
 import { connect } from 'react-redux';
+import fetchEntries from '../../store/actions/fetchEntries.action';
 
-import EntryListItem from './EntryListItem'
+import EntryListItem from './EntryListItem';
 
-const EntryList = ({ entries }) => (
+const EntryList = ({ entries, currentTags, dispatchFetchEntries }) => (
     <div>
+        <div onClick={() => dispatchFetchEntries()}>Refresh</div>
         {entries.map((entry) => (
             <EntryListItem
                 key={entry._id}
@@ -14,8 +17,13 @@ const EntryList = ({ entries }) => (
     </div>
 );
 
-const mapStateToProps = ({ entries }) => ({
+const mapStateToProps = ({ entries, currentTags }) => ({
     entries,
+    currentTags,
 });
 
-export default connect(mapStateToProps)(EntryList);
+const mapDispatchToProps = { 
+    dispatchFetchEntries: fetchEntries,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EntryList);
