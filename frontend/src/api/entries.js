@@ -11,3 +11,11 @@ export const getEntries = (tags, time) => (
     })
         .then(({ data }) => data)
 )
+
+export const postEntry = (entry) => (
+    axios({
+        url: '/entries',
+        method: 'post',
+        data: entry,
+    })
+)
