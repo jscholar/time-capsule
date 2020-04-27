@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { Tag } from './Tag';
 
+import './TagSelection.css'
+
 class TagSelection extends Component {
     constructor(props) {
         super(props);
@@ -30,13 +32,14 @@ class TagSelection extends Component {
     }
 
     render() {
-        const { tags, submitHandler } = this.props;
+        const { tags, submitHandler, selectedTags } = this.props;
         return (
-            <div>
+            <div className="TagSelection">
+                <div className="input-group input-group-sm">
                 {
                     Object.entries(tags).map(([id, {name, color}]) => (
                         <div key={id}>
-                            <input type="checkbox" name={id} onChange={this.handleChange} />
+                            <input type="checkbox" name={id} onChange={this.handleChange} defaultChecked={selectedTags.includes(id)} />
                             <Tag
                                 id={id}
                                 name={name}
@@ -45,6 +48,7 @@ class TagSelection extends Component {
                         </div>
                     ))
                 }
+                </div>
                 <div onClick={() => submitHandler(Object.keys(this.state.selectedTags))}>
                     Submit
                 </div>
